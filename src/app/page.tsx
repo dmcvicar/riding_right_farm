@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import MediaButtons from "@/components/media_buttons"
+
 interface ServicesItemProps {
   title: string
   image_src: string
@@ -77,24 +79,20 @@ export default function Page() {
           src="/images/contact.webp"
           alt="Contact"
         />
-        <div className="flex flex-col max-w-[460px] gap-4">
+        <div className="flex flex-col max-w-[460px] gap-4 mb-10">
           <text className="text-4xl">CONTACT</text>
           <text className="text-lg">We’d be happy to provide you with additional information about Riding Right Farm.</text>
           <text className="text-lg">hollie@ridingfarm.com</text>
-          <div className="flex">
-            <img
-                className=""
-                src="/images/Facebook.webp"
-                alt="Facebook"
-            />
-            <img
-                className=""
-                src="/images/Google Places.webp"
-                alt="Google Places"
-            />
+          <MediaButtons/>
+        <div className="flex gap-2">
+          <input className="appearance-none border-b-2 border-black w-full py-2 px-3 focus:outline-none" id="name" type="text" placeholder="Name"/>
+          <input className="appearance-none border-b-2 border-black w-full py-2 px-3 focus:outline-none" id="email" type="text" placeholder="Email"/>
         </div>
-        </div>
+        <input className="appearance-none border-b-2 border-black w-full py-2 px-3 focus:outline-none" id="subject" type="text" placeholder="Subject"/>
+        <input className="appearance-none border-b-2 border-black w-full h-full py-2 px-3 focus:outline-none" id="body" type="text" placeholder="Type your message here..."/>
+        <button className="bg-black italic text-white text-2xl py-3">Submit</button>
       </div>
     </div>
+  </div>
   </div>);
 }
