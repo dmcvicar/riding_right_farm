@@ -9,8 +9,12 @@ export default function Page() {
         style={{"backgroundImage": `url(/images/boarding_horses.webp)`}}
       />
       <div className="flex flex-col bg-black py-8 gap-8">
-        <VerticalDoubleInfo title="Boarding" content="Full Board includes 12x12 stall, daily turnout, grain, and hay. We offer both first and second cutting. Stalls are cleaned daily, and all have a heated, automatic waterer. Turnout options include individual or groups, large grass pastures or dry lot. Boarders have full use of the facility." img_src="/images/boarding_tack.webp"/>
-        <VerticalDoubleInfo title="Facility" content="Our farm is situated on 75 acres in the rolling hills of Southern Washington County. Our indoor arena measures 72' x 200', has dust free footing of sand. Large mirrors are at each end of the arena. A heated viewing room is attached to the indoor. The outdoor arena is 210' x 100' with sand footing. The farm offers many acres for hacking out that include hills, fields and a stream." img_src="/images/boarding_indoor.webp"/>
+        <VerticalDoubleInfo title="Boarding" img_src="/images/boarding_tack.webp">
+          <text>Full Board includes 12x12 stall, daily turnout, grain, and hay. We offer both first and second cutting. Stalls are cleaned daily, and all have a heated, automatic waterer. Turnout options include individual or groups, large grass pastures or dry lot. Boarders have full use of the facility.</text>
+        </VerticalDoubleInfo>
+        <VerticalDoubleInfo title="Facility" img_src="/images/boarding_indoor.webp">
+          <text>Our farm is situated on 75 acres in the rolling hills of Southern Washington County. Our indoor arena measures 72' x 200', has dust free footing of sand. Large mirrors are at each end of the arena. A heated viewing room is attached to the indoor. The outdoor arena is 210' x 100' with sand footing. The farm offers many acres for hacking out that include hills, fields and a stream.</text>
+        </VerticalDoubleInfo>
       </div>
       <div className="flex flex-col justify-center items-center pt-24 pb-12">
         <div className="flex gap-16">
