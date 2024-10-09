@@ -10,12 +10,12 @@ export default function Template({
 }) {
   return (
     <div>
-        <div className="flex flex-col px-20 pt-8 pb-2">
+        <div className="flex flex-col md:px-20 px-5 pt-8 pb-2">
             <div className="flex justify-between border-b pb-3 border-black">
                 <a href="mailto:hollie@ridingfarm.com">hollie@ridingfarm.com</a>
                 <MediaButtons/>
             </div>
-            <div className="flex my-6 justify-between items-center">
+            <div className="flex flex-wrap my-6 md:justify-between justify-center items-center">
                 <div className="flex">
                     <img
                         className="h-12 mr-4"
@@ -28,7 +28,7 @@ export default function Template({
                     </div>
                 </div>
                 <div>
-                    <ul className="flex flex-wrap">
+                    <ul className="flex">
                         <li className="group p-2">
                             <a href="/">Home</a>
                             <div className="absolute invisible -ml-4 group-hover:visible z-10 mt-2 w-25 bg-white focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">

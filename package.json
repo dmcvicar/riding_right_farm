@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "source secrets.env || true; next dev",
     "build": "next build && touch docs/.nojekyll",
     "start": "next start",
     "lint": "next lint",
