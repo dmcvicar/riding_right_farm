@@ -11,20 +11,17 @@ interface InfoProps {
 }
 
 export default function VerticalDoubleInfo({ children, title, img_src, black, flip }: InfoProps) {
-  const color = (black ? " bg-black text-white" : " bg-white text-black")
-  const img = <img className="flex-1 w-1/3 object-cover" src={img_src} alt={title}/>
-  const content = (
-    <div className="flex bg-white flex-1 justify-center items-center">
-      <div className={"flex flex-col justify-center items-center px-36 h-[500px] gap-2" + color}>
+  return (
+    <div className="flex md:flex-row flex-col md:max-h-[500px]">
+      <div className={"flex-1 " + (flip ? "md:order-1" : "md:order-2")}>
+        <img className="object-cover h-[500px] w-full" src={img_src} alt={title}/>
+      </div>
+      <div className={"flex flex-1 bg-white justify-center items-center " + (flip ? "md:order-2" : "md:order-1")}>
+        <div className={"flex flex-col justify-center items-center px-8 py-8 md:h-[500px] gap-2" + (black ? " bg-black text-white" : " bg-white text-black")}>
           {title ? <text className="text-4xl">{title}</text> : null}
           {children}
+        </div>
       </div>
-    </div>
-  )
-  return (
-    <div className="flex mx-20 max-h-[500px]">
-      {flip ? img : content}
-      {flip ? content : img}
     </div>
   )
 }
