@@ -1,40 +1,20 @@
 'use client';
+import { sendEmail } from '@/app/actions'
 /* eslint-disable @next/next/no-img-element */
 
 import MediaButtons from "@/components/media_buttons"
-import sgMail from '@sendgrid/mail'
-
-const ENABLE_CONTACT = false
-const EMAIL = "todo get email to work"
 
 interface ServicesItemProps {
   title: string
   image_src: string
   href?: string
+
 }
 
-function sendEmail(e: React.FormEvent<HTMLFormElement>) {
-  // TODO backend for this.
-  console.log(process.env.SENDGRID_API_KEY)
+function clientSendEmail(e: React.SyntheticEvent<HTMLFormElement>) {
   e.preventDefault()
   const form = e.currentTarget
-  if (process.env.SENDGRID_API_KEY) {
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-    const msg = {
-      "to": EMAIL,
-      "from": form.from,
-      "subject": form.subject,
-      "text": "Email from " + form.name + ". Sent via ridingfarm.com \n\n" + form.body,
-    }
-    sgMail
-      .send(msg)
-      .then(() => {
-        console.log("Email sent")
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-  }
+  sendEmail(form.sender.value, form.from.value, form.subject.value, form.body.value)
 }
 
 function ServicesItem({ title, image_src, href }: ServicesItemProps) {
@@ -51,18 +31,6 @@ function ServicesItem({ title, image_src, href }: ServicesItemProps) {
 }
 
 export default function Page() {
-  const contactArea = (
-    <form className="mb-20" method="post" onSubmit={sendEmail}>
-      <div className="flex gap-2">
-        <input className="appearance-none border-b-2 border-black w-full py-2 px-3 focus:outline-none" name="name" type="text" placeholder="Name"/>
-        <input className="appearance-none border-b-2 border-black w-full py-2 px-3 focus:outline-none" name="from" type="text" placeholder="Email"/>
-      </div>
-      <input className="appearance-none border-b-2 border-black w-full py-2 px-3 focus:outline-none" name="subject" type="text" placeholder="Subject"/>
-      <input className="appearance-none border-b-2 border-black w-full h-full py-2 px-3 focus:outline-none" name="body" type="text" placeholder="Type your message here..."/>
-      <button type="submit" className="bg-black italic text-white text-2xl py-3 w-full">Submit</button>
-    </form>
-  )
-
   return (
   <div>
     <div className="flex flex-wrap justify-center items-center bg-black text-white px-16 py-24 gap-20">
@@ -120,12 +88,20 @@ export default function Page() {
           src="/images/contact.webp"
           alt="Contact"
         />
-        <div className={"flex flex-col max-w-[460px] gap-4 mb-10 md:justify-start justify-center md:items-start items-center " + (ENABLE_CONTACT ? "" : "justify-center")}>
+        <div className={"flex flex-col max-w-[460px] gap-4 mb-10 md:justify-start justify-center md:items-start items-center"}>
           <text className="text-4xl md:text-left text-center">CONTACT</text>
           <text className="text-lg md:text-left text-center">We’d be happy to provide you with additional information about Riding Right Farm.</text>
           <text className="text-lg md:text-left text-center"><a href="mailto:hollie@ridingfarm.com">hollie@ridingfarm.com</a></text>
           <MediaButtons/>
-          {ENABLE_CONTACT ? contactArea : null}
+          <form className="mb-20" method="post" onSubmit={clientSendEmail}>
+            <div className="flex gap-2">
+                <input className="appearance-none border-b-2 border-black w-full py-2 px-3 focus:outline-none" name="sender" type="text" placeholder="Name"/>
+                <input className="appearance-none border-b-2 border-black w-full py-2 px-3 focus:outline-none" name="from" type="text" placeholder="Email"/>
+            </div>
+            <input className="appearance-none border-b-2 border-black w-full py-2 px-3 focus:outline-none" name="subject" type="text" placeholder="Subject"/>
+            <input className="appearance-none border-b-2 border-black w-full h-[150px] py-2 px-3 focus:outline-none" name="body" type="text" placeholder="Type your message here..."/>
+            <button type="submit" className="bg-black italic text-white text-2xl py-3 w-full">Submit</button>
+          </form>
         </div>
       </div>
     </div>
