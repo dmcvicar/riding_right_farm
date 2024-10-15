@@ -12,7 +12,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-      display: ["group-hover"]
+      display: ["group-hover"],
     },
   },
   plugins: [],
