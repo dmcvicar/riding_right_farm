@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "source secrets.env || true; next dev",
-    "build": "next build && touch docs/.nojekyll",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && touch docs/.nojekyll && git add --all && git commit -m \"auto-commit - deploy pages\" && git push --set-upstream origin main",
     "format": "npx prettier . --write"
   },
   "dependencies": {
