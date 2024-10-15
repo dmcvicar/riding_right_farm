@@ -141,7 +141,7 @@ export default function Page() {
       <div className="flex flex-col items-center justify-center pb-12 pt-24">
         <div className="flex flex-col flex-wrap gap-8 px-16 md:flex-row">
           <img
-            className="max-w-[460px]"
+            className="w-screen md:max-w-[460px]"
             src="/images/contact.webp"
             alt="Contact"
           />

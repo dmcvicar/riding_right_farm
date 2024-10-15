@@ -7,7 +7,7 @@ interface SubMenuItemProps {
 }
 
 function SubMenuItems({ dropdown }: SubMenuItemProps) {
-  let tl_classes = "flex gap-4 justify-center z-10 bg-white ";
+  let tl_classes = "flex gap-2 justify-center z-10 bg-white ";
   if (dropdown) {
     tl_classes =
       tl_classes +
