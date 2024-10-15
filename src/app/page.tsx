@@ -49,7 +49,7 @@ function ServicesItem({ title, image_src, href }: ServicesItemProps) {
 
 export default function Page() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div className="flex flex-wrap items-center justify-center gap-20 bg-black px-16 py-24 text-white">
         <div className="flex flex-col gap-2 md:max-w-md">
           <text className="text-center text-6xl md:text-left">

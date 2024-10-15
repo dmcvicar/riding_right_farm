@@ -3,7 +3,7 @@ import VerticalDoubleInfo from "@/components/vertical_double_info";
 
 export default function Page() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-x-hidden">
       <div
         className="mx-auto h-96 w-full bg-cover bg-fixed bg-center bg-no-repeat"
         style={{ backgroundImage: `url(/images/boarding_horses.webp)` }}

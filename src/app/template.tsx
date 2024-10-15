@@ -2,6 +2,42 @@
 
 import MediaButtons from "@/components/media_buttons";
 
+interface SubMenuItemProps {
+  dropdown?: boolean;
+}
+
+function SubMenuItems({ dropdown }: SubMenuItemProps) {
+  let tl_classes = "flex gap-4 justify-center z-10 bg-white ";
+  if (dropdown) {
+    tl_classes =
+      tl_classes +
+      "flex-col px-2 py-2 focus:outline-none -ml-4 w-25 absolute invisible md:group-hover:visible";
+  } else {
+    tl_classes = tl_classes + "md:hidden";
+  }
+  return (
+    <div
+      className={tl_classes}
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="menu-button"
+    >
+      <a href="/boarding" className="block" role="menuitem" id="menu-item-0">
+        Boarding
+      </a>
+      <a href="/lessons" className="block" role="menuitem" id="menu-item-2">
+        Lessons
+      </a>
+      <a href="/services" className="block" role="menuitem" id="menu-item-1">
+        Training
+      </a>
+      <a href="/about" className="block" role="menuitem" id="menu-item-2">
+        Youth Dressage Team
+      </a>
+    </div>
+  );
+}
+
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <div>
@@ -10,7 +46,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
           <a href="mailto:hollie@ridingfarm.com">hollie@ridingfarm.com</a>
           <MediaButtons />
         </div>
-        <div className="my-6 flex flex-wrap items-center justify-center md:justify-between">
+        <div className="my-6 flex flex-col items-center justify-center gap-2 md:flex-row md:justify-between">
           <div className="flex">
             <img
               className="mr-4 h-12"
@@ -22,60 +58,23 @@ export default function Template({ children }: { children: React.ReactNode }) {
               <text className="text-md">A Welcoming Place to Ride</text>
             </div>
           </div>
-          <div>
-            <ul className="flex">
-              <li className="group p-2">
+          <div className="flex flex-col justify-center">
+            <ul className="flex justify-center gap-4 md:justify-end">
+              <li className="group">
                 <a href="/">Home</a>
-                <div
-                  className="md:w-25 absolute z-10 -ml-4 mt-2 flex gap-4 bg-white focus:outline-none md:invisible md:flex-col md:px-2 md:group-hover:visible"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="menu-button"
-                >
-                  <a
-                    href="/boarding"
-                    className="block"
-                    role="menuitem"
-                    id="menu-item-0"
-                  >
-                    Boarding
-                  </a>
-                  <a
-                    href="/lessons"
-                    className="block"
-                    role="menuitem"
-                    id="menu-item-2"
-                  >
-                    Lessons
-                  </a>
-                  <a
-                    href="/services"
-                    className="block"
-                    role="menuitem"
-                    id="menu-item-1"
-                  >
-                    Training
-                  </a>
-                  <a
-                    href="/about"
-                    className="block"
-                    role="menuitem"
-                    id="menu-item-2"
-                  >
-                    Youth Dressage Team
-                  </a>
-                </div>
+                <SubMenuItems dropdown />
               </li>
-              <li className="p-2">
+              <li>
                 <a href="/upcoming-events">Upcoming Events</a>
               </li>
-              <li className="p-2">
+              <li>
                 <a href="/news">News</a>
               </li>
-              <li className="p-2">
+              <li>
                 <a href="shop">Book/DVD</a>
               </li>
             </ul>
+            <SubMenuItems />
           </div>
         </div>
       </div>
