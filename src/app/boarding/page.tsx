@@ -35,16 +35,16 @@ export default function Page() {
           </text>
         </VerticalDoubleInfo>
       </div>
-      <div className="flex flex-col items-center justify-center pb-12 pt-24">
+      <div className="flex flex-col items-center justify-center pb-12 pt-24 px-16">
         <div className="flex flex-col gap-16 md:flex-row">
           <img
-            className="max-w-[460px]"
+            className="w-screen md:max-w-[460px]"
             src="/images/boarding_outdoor.webp"
             alt="Contact"
           />
           <div className="mb-10 flex max-w-[460px] flex-col items-center justify-center gap-4 md:items-start">
             <text className="text-8xl">Prices</text>
-            <text className="text-md">
+            <text className="text-md md:text-left text-center">
               We have two options for boarders. Standard Full Board is $700 per
               month. Active Board is $860 per month and includes four lessons or
               training sessions in addition to everything in Standard Full
